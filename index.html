@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Worklet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+  <section class="aurum-symbol">
+    <h1>Aurum</h1>
+    <p>Har du noe du lurer på? Da kan vi hjelpe deg. Enten det er et litt ullent "kan teknologi
+      hjelpe oss her" til det
+      mer konkrete "hvordan løser vi dette rent teknisk"? Vi hjelper deg videre med både overordnede planer og med
+      detaljerte løsninger for utfordringene dine.</p>
+  </section>
+  <script src="./properties.js"></script>
+  <style>
+    @supports(background: paint(test)) {
+      @property --aurum-symbolCount {
+        syntax: '<number>';
+        inherits: false;
+        initial-value: 50;
+      }
+    }
+  </style>
+  <script>
+    if (self.CSS && CSS.paintWorklet) {
+      CSS.paintWorklet.addModule('./index.js');
+    }
+  </script>
+  <style>
+    .aurum-symbol {
+      --aurum-symbolColor: var(--color-secondary);
+      --aurum-symbolCount: 100;
+      --aurum-squareMinSize: 10;
+      --aurum-squareMaxSize: 50;
+      --aurum-squareAlpha: 100;
+      --aurum-rngSeed: 9323;
+      background: paint(aurum);
+    }
+  </style>
+</body>
+
+</html>

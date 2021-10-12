@@ -1,0 +1,39 @@
+:root {
+  --color-primary: #005a75;
+  --color-secondary: #f5921a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Merriweather", serif;
+}
+
+h1 {
+  font-family: "Bebas Neue", cursive;
+  margin: 1rem auto;
+  font-size: clamp(3.5rem, 12vw + 1rem, 10rem);
+  color: var(--color-primary);
+}
+
+p {
+  max-width: 75ch;
+  color: #353535;
+  padding: 1rem;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+section > * + * {
+  margin-top: 2rem;
+}
